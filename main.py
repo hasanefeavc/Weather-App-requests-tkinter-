@@ -6,18 +6,19 @@ from tkinter import messagebox
 window = tk.Tk()
 window.title("Weather App")
 
+
 # Create and configure labels and entry fields
-city_label = tk.Label(window, text="City: ", padx=100, pady=10)
+city_label = tk.Label(window, text="Enter City Name : ", padx=100, pady=15, font="bold")
 city_label.pack()
 city_entry = tk.Entry(window)
 city_entry.pack(pady=10)
 
 # Create a button to fetch weather data
-fetch_button = tk.Button(window, text="Fetch Weather")
+fetch_button = tk.Button(window, text="Fetch Weather", font="bold")
 fetch_button.pack()
 
 # Create a label to display weather information
-weather_label =  tk.Label(window, text="", pady=10)
+weather_label =  tk.Label(window, text="", pady=5)
 weather_label.pack()
 
 # Define the function to fetch weather data
@@ -32,7 +33,7 @@ def fetch_weather():
         data = response.json()
         temperature = data["main"]["temp"]
         weather = data["weather"][0]["description"]
-        weather_label.config(text=f"temperature: {temperature}°C\n Weather: {weather}")
+        weather_label.config(text=f"Temperature: {temperature}°C\n Weather: {weather}")
     except Exception as e:
         messagebox.showerror("Error", "Unable a fetch weather data")
 
